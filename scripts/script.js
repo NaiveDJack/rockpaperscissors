@@ -1,8 +1,22 @@
+/*
+Rock Paper Scissors
+
+a practice assignment by The Odin Project
+by Naive D. Jack
+first commit - Feb 28, 2021
+last update - March 1st, 2021
+
+This script plays a game of RPS in the JS console 
+of your browser.
+*/
+
+//I found easier to declare RPS as variables
+//so autocomplete will help me write them
 const rock = 'rock',
 paper = 'paper',
 scissors = 'scissors';
 
-function computerPlay() {//takes random number and makes a play
+function computerPlay() {
     let play = Math.round(Math.random() * (3-1) + 1);
     let answer
     if (play === 1) {
@@ -18,9 +32,9 @@ function computerPlay() {//takes random number and makes a play
     return(answer)
 }
 
-function playerPlay() {//takes player input and converts it
-    let p1 = prompt("Write rock, paper, scissors to play against the computer", "Rock");
-    p1 = p1.toLowerCase(); //adapt input
+function playerPlay() {
+    let p1 = prompt("Write rock, paper, scissors to play against the computer");
+    p1 = p1.toLowerCase(); //to allow case insensitive input
     
     if (p1 === "rock") {
         p1 = rock;
@@ -38,7 +52,7 @@ function playerPlay() {//takes player input and converts it
     return p1
 }
 
-function round() {//plays out game mechanics
+function round() {
     let p1 = playerPlay();
     let p2 = computerPlay();
     let result;
@@ -46,7 +60,6 @@ function round() {//plays out game mechanics
     console.log("You played " + p1 + ".")
     console.log("Computer plays " + p2 + ".")
 
-    //compares and determines outcome
     if (p1 === rock) {
         if (p2 == rock) {
             result = "tie";
@@ -81,7 +94,6 @@ function round() {//plays out game mechanics
         }
     }
 
-    //declares outcome through console
     if (result === "win") {
         console.log("You win this round!")
     }
@@ -99,14 +111,14 @@ function round() {//plays out game mechanics
 
 }
 
-function game() {//plays 5 rounds and determines a winner
+function game() {//plays best of five rounds
     let p1score = 0, p2score = 0;
 
+    //let's have some colour shall we?
     console.log("Welcome to Rock Paper Scissors!")
     console.log("You will face the Computer in a five round match")
 
-    //5 round and keeps score
-    bestOfThree: for (let step = 1; step < 6; ++step) {
+        bestOfFive: for (let step = 1; step < 6; ++step) {
         
         console.log("Round " + step)
         let outcome = round();
@@ -115,14 +127,14 @@ function game() {//plays 5 rounds and determines a winner
             ++p1score
             console.log("You have " + p1score + " points and the computer has " + p2score + " points.")
             if (p1score > 2) {
-                break bestOfThree;
+                break bestOfFive;
             }
         }
         else if (outcome == "loss") {
             ++p2score
             console.log("You have " + p1score + " points and the computer has " + p2score + " points.")
             if (p2score > 2) {
-                break bestOfThree;
+                break bestOfFive;
             }
         }
         else if (outcome == "tie") {
@@ -130,7 +142,6 @@ function game() {//plays 5 rounds and determines a winner
         }
     }
 
-    //checks score and declares winner
     console.log("Match is over! The winner is...")
 
     if (p1score > p2score) {
@@ -144,7 +155,3 @@ function game() {//plays 5 rounds and determines a winner
     }
 
 }
-
-//compare computerPlay with playerPlay
-//determine winner
-//declare winner
