@@ -16,45 +16,49 @@ const rock = 'rock',
 paper = 'paper',
 scissors = 'scissors';
 
+const rps = document.querySelectorAll('.rps');
+let p1, p2;
+
+
 function computerPlay() {
     let play = Math.round(Math.random() * (3-1) + 1);
-    let answer
     if (play === 1) {
-        answer = rock;
+        p2 = rock;
     }
     else if (play === 2) {
-        answer = paper;
+        p2 = paper;
     }
 
     else if (play === 3) {
-        answer = scissors;
+        p2 = scissors;
     }
-    return(answer)
+    return(p2)
 }
 
-function playerPlay() {
-    let p1 = prompt("Write rock, paper, scissors to play against the computer");
-    p1 = p1.toLowerCase(); //to allow case insensitive input
+function playerPlay(p1) {
+    console.log(p1)
     
-    if (p1 === "rock") {
+
+    if (p1 === "Rock") {
+        console.log('rock')
         p1 = rock;
     }
-    else if (p1 === "paper") {
+    else if (p1 === "Paper") {
+        console.log('paper')
         p1 = paper
     }
-    else if (p1 === "scissors") {
+    else if (p1 === "Scissors") {
         p1 = scissors
     }
     else {
+        console.log("Wrong input, sorry!")
         return "Wrong input, sorry!"
     }
     
-    return p1
+    round(p1, computerPlay())
 }
 
-function round() {
-    let p1 = playerPlay();
-    let p2 = computerPlay();
+function round(p1, computerPlay) {
     let result;
 
     console.log("You played " + p1 + ".")
@@ -155,3 +159,7 @@ function game() {//plays best of five rounds
     }
 
 }
+
+rps.forEach(element => {
+    element.addEventListener('click', () => playerPlay(element.innerText));
+}); 
