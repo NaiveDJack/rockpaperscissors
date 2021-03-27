@@ -5,16 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper, Scissors</title>
+    <link rel="stylesheet" type = "text/css" href="./styles/reset.css" media="screen">
+    <link rel="stylesheet" type = "text/css" href="./styles/style.css" media="screen">
 </head>
 <body>
     <div>
-        Welcome! Open your JS console and click play.
-        <button onclick="game()">Play</button>
+        <p>Welcome to Rock, Paper, Scissors!</p>
+        <button onclick="gameStart()" class="new-game">Play</button>
+    </div>
+    <div>
         <button class="rps" id="rock">Rock</button>
         <button class="rps" id="paper">Paper</button>
-        <button class="rps" id="scissors">Scissors</button>
+        <button class="rps" id="scissors">Scissors</button> 
     </div>
     <div id="output"></div>
+    <div id="score-table">
+        <div id="player-score-tab">
+            <p>Player</p>
+            <div id="player-score">0</div>
+        </div>
+        <div id="computer-score-tab">
+            <p>Computer</p>
+            <div id="computer-score">0</div>
+        </div>
+    </div>
     <script src="./scripts/script.js"></script>
 </body>
 </html>

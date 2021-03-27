@@ -17,9 +17,12 @@ paper = 'paper',
 scissors = 'scissors';
 
 const rps = document.querySelectorAll('.rps');
+const newGame = document.querySelector('.new-game');
 let p1, p2;
 
 const output = document.querySelector('#output');
+let playerScore = Number(document.getElementById('player-score').textContent);
+let computerScore = Number(document.getElementById('computer-score').textContent);
 
 let welcome = "Welcome to Rock Paper Scissors!",
 tellRules = "You will face the Computer in a five round match";
@@ -53,7 +56,6 @@ function playerPlay(p1) {
         p1 = rock;
     }
     else if (p1 === "Paper") {
-        console.log('paper')
         p1 = paper
     }
     else if (p1 === "Scissors") {
@@ -68,9 +70,6 @@ function playerPlay(p1) {
 
 function round(p1, computerPlay) {
     let result;
-
-    console.log("You played " + p1 + ".")
-    console.log("Computer plays " + p2 + ".")
 
     if (p1 === rock) {
         if (p2 == rock) {
@@ -108,63 +107,61 @@ function round(p1, computerPlay) {
 
     if (result === "win") {
         announcer(winRound);
+        playerScore += 1
+        document.getElementById('player-score').innerText = playerScore;
     }
     else if (result === "loss") {
         announcer(loseRound);
+        computerScore +=1
+        document.getElementById('computer-score').innerText = computerScore;
     }
     else if (result === "tie") {
         announcer(tieRound);
+        playerScore += 1
+        computerScore +=1
+        document.getElementById('player-score').innerText = playerScore;
+        document.getElementById('computer-score').innerText = computerScore;
     }
     else {
         announcer(gameError);
     }
 
-    return result
+    if (playerScore == 5 || computerScore == 5) {
+        gameEnd();
+    }
+    else {
+        //unlocks rps buttons
+    }
 
 }
 
-function game() {
-    let p1score = 0, p2score = 0;
+function gameStart() {
 
-    //let's have some colour shall we?
+    //resets the screen to initial values
+
+    playerScore = 0
+    computerScore = 0
+    document.getElementById('player-score').innerText = playerScore;
+    document.getElementById('computer-score').innerText = computerScore;
     announcer(welcome, tellRules)
 
-        bestOfFive: for (let step = 1; step < 6; ++step) {
-        
-        console.log("Round " + step)
-        let outcome = round();
+    //unlocks rps buttons
 
-        if (outcome == "win") {
-            ++p1score
-            console.log("You have " + p1score + " points and the computer has " + p2score + " points.")
-            if (p1score > 2) {
-                break bestOfFive;
-            }
-        }
-        else if (outcome == "loss") {
-            ++p2score
-            console.log("You have " + p1score + " points and the computer has " + p2score + " points.")
-            if (p2score > 2) {
-                break bestOfFive;
-            }
-        }
-        else if (outcome == "tie") {
-            console.log("You have " + p1score + " points and the computer has " + p2score + " points.")
-        }
+}
+
+function gameEnd() {
+
+    if (playerScore > computerScore) {
+        announcer(winGame)
     }
-
-    console.log("Match is over! The winner is...")
-
-    if (p1score > p2score) {
-        console.log("You! Congratulations!")
-    }
-    else if (p1score < p2score) {
-        console.log("The Computer! Glory to the Machines!")
+    else if (playerScore < computerScore) {
+        announcer(loseGame)
     }
     else {
-        console.log("Both! We have a tie!")
+        announcer(tieGame)
     }
 
+    //unlock new game button
 }
 
 function announcer(...what) {
@@ -173,6 +170,7 @@ function announcer(...what) {
     }
     what.forEach(element => {
         output.append(element)
+        //times and fades in the elements
     });
     
 }
@@ -180,3 +178,5 @@ function announcer(...what) {
 rps.forEach(element => {
     element.addEventListener('click', () => playerPlay(element.innerText));
 }); 
+
+newGame.addEventListener('click', () => gameStart)
