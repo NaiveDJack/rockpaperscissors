@@ -4,12 +4,12 @@ Rock Paper Scissors
 a practice assignment by The Odin Project
 by Naive D. Jack
 first commit - Feb 28, 2021
-last update - March 23rd, 2021
+last update - March 27rd, 2021
 
-This script plays a game of RPS in the JS console 
-of your browser.
+This script plays a game of RPS on your browser.
 */
 
+//TODO: timing of the announcer, disabling/enabling buttons
 //I found easier to declare RPS as variables
 //just so autocomplete will help me write them
 const rock = 'rock',
@@ -24,11 +24,11 @@ const output = document.querySelector('#output');
 let playerScore = Number(document.getElementById('player-score').textContent);
 let computerScore = Number(document.getElementById('computer-score').textContent);
 
-let welcome = "Welcome to Rock Paper Scissors!",
-tellRules = "You will face the Computer in a five round match";
-
-const inputError = "Wrong input, sorry!",
+const welcome = "Welcome to Rock Paper Scissors!",
+tellRules = "You will face the Computer in a five round match",
+inputError = "Wrong input, sorry!",
 gameError = "Uhm... What's going on here?",
+gameOver = "The match is over, the winner is...",
 winGame = "You! Congratulations!",
 loseGame = "The Computer! Glory to the Machines!",
 tieGame = "Both! We have a tie!",
@@ -151,14 +151,16 @@ function gameStart() {
 
 function gameEnd() {
 
+    announcer(gameOver);
+
     if (playerScore > computerScore) {
-        announcer(winGame)
+        announcer(winGame);
     }
     else if (playerScore < computerScore) {
-        announcer(loseGame)
+        announcer(loseGame);
     }
     else {
-        announcer(tieGame)
+        announcer(tieGame);
     }
 
     //unlock new game button
