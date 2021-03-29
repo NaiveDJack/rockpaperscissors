@@ -151,6 +151,7 @@ function gameStart() {
 
 function gameEnd() {
 
+    //locks rps buttons
     announcer(gameOver);
 
     if (playerScore > computerScore) {

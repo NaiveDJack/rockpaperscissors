@@ -9,26 +9,43 @@
     <link rel="stylesheet" type = "text/css" href="./styles/style.css" media="screen">
 </head>
 <body>
-    <div>
-        <p>Welcome to Rock, Paper, Scissors!</p>
-        <button onclick="gameStart()" class="new-game">Play</button>
-    </div>
-    <div>
-        <button class="rps" id="rock">Rock</button>
-        <button class="rps" id="paper">Paper</button>
-        <button class="rps" id="scissors">Scissors</button> 
-    </div>
-    <div id="output"></div>
-    <div id="score-table">
-        <div id="player-score-tab">
-            <p>Player</p>
-            <div id="player-score">0</div>
+    <div class="black-band" style="top: 0px; left: 0px;"></div>
+    <div class="visible">
+        <div id="title">
+            <p class="title game">Welcome to Rock, Paper, Scissors!</p>
         </div>
-        <div id="computer-score-tab">
-            <p>Computer</p>
-            <div id="computer-score">0</div>
+        <div id="new-game-area">
+            <button onclick="gameStart()" class="button new-game">Play</button>
+        </div>
+        
+        
+    </div>
+    <div id="left-side">
+        <p class="title">Take your pick</p>
+        
+        <div id="play-area">
+            <button class="rps" id="rock">Rock</button>
+            <button class="rps" id="paper">Paper</button>
+            <button class="rps" id="scissors">Scissors</button> 
         </div>
     </div>
+    
+    <div id="right-side">
+        <div id="scoreboard">
+            <div id="player-scoreboard" class="scoreboard">
+                <p>Player</p>
+                <div id="player-score">0</div>
+            </div>
+            <div id="computer-scoreboard" class="scoreboard">
+                <p>Computer</p>
+                <div id="computer-score">0</div>
+            </div>
+        </div>
+        <div id="output">
+
+        </div>
+    </div>
+    <div class="black-band" style="bottom: 0px; left: 0px;"></div>
     <script src="./scripts/script.js"></script>
 </body>
 </html>
