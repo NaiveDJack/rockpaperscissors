@@ -80,7 +80,7 @@ function playerPlay(p1) {
 
 function round(p1, computerPlay) {
     let result;
-    leftSide = gameScreen.removeChild(leftSide); 
+    leftSide.style.visibility = 'hidden'; 
 
     if (p1 === rock) {
         if (p2 == rock) {
@@ -144,7 +144,7 @@ function round(p1, computerPlay) {
     }
     else {
         setTimeout( () => {
-            gameScreen.insertBefore(leftSide, gameScreen.childNodes[0]);
+            leftSide.style.visibility = 'visible';
         } , 1000)
     }
 }

@@ -128,6 +128,9 @@ body {
     border: 4px solid #000000;
     box-sizing: border-box;
 
+    font-family: Rationale;
+    line-height: 121%;
+
     /* Inside Auto Layout */
     flex: none;
     order: 1;
