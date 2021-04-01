@@ -62,13 +62,13 @@ function computerPlay() {
 }
 
 function playerPlay(p1) {
-    if (p1 === "Rock") {
+    if (p1 === "ROCK") {
         p1 = rock;
     }
-    else if (p1 === "Paper") {
+    else if (p1 === "PAPER") {
         p1 = paper
     }
-    else if (p1 === "Scissors") {
+    else if (p1 === "SCISSORS") {
         p1 = scissors
     }
     else {
@@ -173,6 +173,7 @@ function gameEnd() {
     }
 
     setTimeout(() => {
+        gameScreen.insertBefore(leftSide, gameScreen.childNodes[0]);
         mainScreen.removeChild(gameScreen);
         mainScreen.appendChild(startScreen);
     }, 3000)
