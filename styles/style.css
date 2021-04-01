@@ -1,15 +1,24 @@
+/*General*/
+
 html {
     background: no-repeat center center fixed;
     background-image: linear-gradient(60deg, rgba(206, 18, 18, 0.4) 35%, white 35%);
+    width: 100%;
+    height: 100%;
 }
 
 body {
-    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-size: x-large;   
+}
+
+#main-screen {
+    width: 100%;
+    height: 100%;
+
     display: flex;
-    flex-direction: column;
     align-items: center;
-    padding: 20px;
-    font-size: x-large;
 }
 
 .title {
@@ -26,9 +35,6 @@ body {
 
 .button {
     /* Auto Layout */
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
     padding: 27px 54px;
 
     width: 279px;
@@ -43,8 +49,6 @@ body {
     font-weight: normal;
     font-size: 32px;
     line-height: 37px;
-    display: flex;
-    align-items: center;
     text-align: center;
     text-transform: uppercase;
 
@@ -54,52 +58,62 @@ body {
 .black-band {
     background-color: black;
     width: 100%;
-    height: 113px;
-    position: fixed;
+    height: 15%;
+    position: absolute;
+    left: 0px;
 }
+
+/* Start screen*/
 
 #start-screen {
-    position: fixed;
-    top: 118px;
-    height: 800px;
+    position: relative;
     width: 100%;
-    position: relative;
+    height: 60%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
 }
 
-#title {
+#start-screen > div {
     position: relative;
-    left: 50%;
+
 }
 
-#new-game-area {
+#game-screen {
     position: relative;
-    top: 208px;
-    left: 100%;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
 
-
+/*Game screen - right side*/
 #right-side {
+    position: relative;
+
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
+    justify-content: space-between;
 
-    position: absolute;
-    width: 618px;
-    left: 740px;
-    top: 181px;
-    bottom: 182px;
+    width: 35%;
+    height: 65%;
+
 }
 
 #output {
+    position: relative;
+
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 36px 18px;
 
-    position: static;
-    width: 618px;
-    height: 363px;
+    width: 100%;
+    height: 40%;
 
     background: #FFFFFF;
     border: 4px solid #000000;
@@ -109,40 +123,38 @@ body {
     flex: none;
     order: 1;
     flex-grow: 0;
-    margin: 121px 0px;
 }
 
 #scoreboard {
+    position: relative;
+    
+    width: 100%;
+    height: 40%;
+
     /* Auto Layout */
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    justify-content: space-between;
     padding: 0px;
-
-    position: static;
-    width: 618px;
-    height: 177px;
-
 
     /* Inside Auto Layout */
     flex: none;
     order: 0;
     flex-grow: 0;
-    margin: 121px 0px;
 }
 
 #scoreboard > div {
+    position: relative;
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 24px;
+    padding: 5%;
 
-    position: static;
-    width: 272px;
-    height: 177px;
-    left: 0px;
-    top: 0px;
+    width: 30%;
+    height: 50%;
 
     background: #EAEAEA;
     border: 4px dashed #383838;
@@ -151,21 +163,19 @@ body {
     flex: none;
     order: 0;
     flex-grow: 0;
-    margin: 0px 74px;
 }
 
+/*Game screen - left side*/
+
 #left-side {
-    /* Auto Layout */
+    position: relative;
+
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
+    justify-content: space-between;
 
-    position: absolute;
-    width: 448px;
-    height: 661px;
-    left: 83px;
-    top: 181px;
+    width: 35%;
+    height: 65%;
 }
 
 #play-area {
@@ -176,20 +186,14 @@ body {
     align-items: center;
     padding: 0px;
 
-    position: static;
-    width: 209px;
-    height: 417px;
-    left: 0px;
-    top: 244px;
-
 
     /* Inside Auto Layout */
     flex: none;
     order: 1;
     flex-grow: 0;
-    margin: 212px 0px;
 }
 
 #play-area > button {
     padding: 2%;
+    margin: 2%;
 }

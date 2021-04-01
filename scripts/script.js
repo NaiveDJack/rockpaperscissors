@@ -4,7 +4,7 @@ Rock Paper Scissors
 a practice assignment by The Odin Project
 by Naive D. Jack
 first commit - Feb 28, 2021
-last update - March 27rd, 2021
+last update - Apr 1st, 2021
 
 This script plays a game of RPS on your browser.
 */
@@ -144,7 +144,7 @@ function round(p1, computerPlay) {
     }
     else {
         setTimeout( () => {
-            gameScreen.appendChild(leftSide);
+            gameScreen.insertBefore(leftSide, gameScreen.childNodes[0]);
         } , 1000)
     }
 }
