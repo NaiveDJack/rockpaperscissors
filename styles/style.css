@@ -12,7 +12,7 @@ body {
     font-size: x-large;
 }
 
-.game {
+.title {
     font-family: Press Start 2P; /*download it*/
     font-style: normal;
     font-weight: normal;
@@ -58,39 +58,12 @@ body {
     position: fixed;
 }
 
-.visible {
+#start-screen {
     position: fixed;
     top: 118px;
     height: 800px;
     width: 100%;
     position: relative;
-}
-
-.rps {
-    padding: 2%;
-}
-
-.scoreboard {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 24px;
-
-    position: static;
-    width: 272px;
-    height: 177px;
-    left: 0px;
-    top: 0px;
-
-    background: #EAEAEA;
-    border: 4px dashed #383838;
-
-    /* Inside Auto Layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    margin: 0px 74px;
 }
 
 #title {
@@ -158,6 +131,29 @@ body {
     margin: 121px 0px;
 }
 
+#scoreboard > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+
+    position: static;
+    width: 272px;
+    height: 177px;
+    left: 0px;
+    top: 0px;
+
+    background: #EAEAEA;
+    border: 4px dashed #383838;
+
+    /* Inside Auto Layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 74px;
+}
+
 #left-side {
     /* Auto Layout */
     display: flex;
@@ -192,4 +188,8 @@ body {
     order: 1;
     flex-grow: 0;
     margin: 212px 0px;
+}
+
+#play-area > button {
+    padding: 2%;
 }
